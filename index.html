@@ -57,12 +57,6 @@ details.q p{margin:4px 0 10px;font-size:13.5px}details.q b{color:var(--ac)}
 <li><b>Categories:</b> health_beauty (9.3%), watches_gifts (8.8%) and bed_bath_table (7.8%) lead, with a long tail beyond the top 6. <i>Recommendation:</i> prioritise inventory and promotions here.</li>
 <li><b>Delivery risk:</b> <b>8.1%</b> of orders arrive late, and late orders average <b>2.57</b> stars vs <b>4.30</b> for on-time orders. <i>Recommendation:</i> fix delivery estimates and carriers in the worst states (see state table).</li></ul></div>
 <div class="c"><h2>Live insights for the current filters</h2><ul id="ins"></ul>
-<details class="q"><summary>How to explain this project in an interview</summary>
-<p><b>60-second pitch.</b> &ldquo;I analysed 96K real Olist orders using SQL and Python. I cleaned the data, built KPIs for revenue, order value, late deliveries and reviews, and found that revenue grew 141% in 2018, 38% of it comes from one state, and late deliveries drop review scores from 4.30 to 2.57.&rdquo;</p>
-<p><b>What cleaning did you do?</b> Kept delivered orders only, removed 8 delivered orders with no delivery date, dropped months with too little data, translated category names, and used item price without freight.</p>
-<p><b>How is late delivery defined?</b> Delivered date after the estimated delivery date, counted once per order.</p>
-<p><b>Limits?</b> The data covers 20 months, so seasonality can&rsquo;t be fully separated from growth. Orders with several categories count once in each category. Reviews show correlation with lateness, not proof of cause.</p>
-<p><b>Next steps?</b> Cohort and repeat-purchase analysis, a delivery-time model, and a forecast.</p></details>
 <details><summary>SQL used for the base dataset</summary><pre>SELECT o.order_id, substr(o.order_purchase_timestamp,1,7) AS month,
        c.customer_state, t.product_category_name_english AS category,
        i.price,
